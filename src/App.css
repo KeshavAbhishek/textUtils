@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+#root {
+  width: 100dvw;
+  height: 100dvh;
+  position: relative;
+  transition: filter 0.3s ease-in-out;
+  transition: background 0.4s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand{
+  font-size: 1.8rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  background: aquamarine !important;
+  font-weight: bolder;
+}
+
+.active {
+  color: red !important;
+}
+
+.mb-3 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#navbarSupportedContent{
+  font-size: 1.7rem;
+}
+
+#exampleFormControlTextarea1 {
+  text-align: justify;
+  resize: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  border: 2px solid #d5d5d5;
+  transition: background 0.4s ease-in-out;
+}
+
+#buttons{
+  width: 100%;
+  margin: 10px 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+#buttons button{
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#lightDarkMode{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  transition: background 0.4s ease-in-out;
 }
