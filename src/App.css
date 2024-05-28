@@ -65,3 +65,53 @@ a {
   font-weight: bolder;
   transition: background 0.4s ease-in-out;
 }
+
+.alert{
+  /* width: 30vw; */
+  position: absolute;
+  left: -220px;
+  bottom: 0px;
+  animation: slideRight 0.7s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideRight {
+  0%{
+    left: -220px;
+  }
+  50%{
+    left: 30px;
+  }
+  100%{
+    left: 10px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  @keyframes slideLeft {
+    0%{
+      right: -220px;
+    }
+    50%{
+      right: 30px;
+    }
+    100%{
+      right: 10px;
+    }
+  }
+  .alert{
+    position: absolute;
+    right: -220px;
+    top: 1vh;
+    bottom: initial;
+    left: initial;
+    animation: slideLeft 0.7s ease-in-out;
+    animation-fill-mode: forwards;
+    width: auto;
+  }
+  #lightDarkMode{
+    font-size: 1rem;
+  }
+}

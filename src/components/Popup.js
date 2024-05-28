@@ -6,7 +6,7 @@ export default function Popup(props) {
             <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick = {()=>{
                         var a = props.text.split("");
                         var b = props.text.split(" ");
-                        if(props.text){
+                        if(props.text.length>0){
                             props.setData(`${a.length} characters & ${b.length} words.`);
                         }
                         else{
