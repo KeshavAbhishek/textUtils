@@ -1,7 +1,7 @@
 import React from 'react'
 
 function About() {
-    document.getElementById('lightDarkMode').style.display='none';
+    // document.getElementById('lightDarkMode').style.display='none';
     return (
         <div className='container' id='about'>
             <h1>About</h1>
