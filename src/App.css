@@ -102,6 +102,44 @@ a {
 }
 
 
+#about{
+  user-select: none !important;
+}
+
+p{
+  text-align: justify;
+  font-size: 1.5rem;
+}
+
+video{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  z-index: -1;
+}
+
+source{
+  border: 0;
+  outline: none;
+}
+
+
+#about h1{
+  font-weight: bolder;
+}
+
+#about p{
+  font-size: 1.7rem;
+  color: white;
+  font-weight: bolder;
+}
+
+#about h1{
+  font-size: 5rem;
+  color: white;
+}
+
 
 @media screen and (max-width: 600px) {
   @keyframes slideLeft {
@@ -148,29 +186,8 @@ a {
   p{
     font-size: 1.1rem !important;
   }
-}
 
-p{
-  text-align: justify;
-  font-size: 1.5rem;
-}
-
-video{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100dvw;
-  z-index: -1;
-}
-
-#about p{
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 2 !important;
-}
-
-#about h1{
-  font-size: 5rem;
-  color: white;
+  video{
+    width: initial;
+  }
 }
