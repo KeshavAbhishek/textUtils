@@ -10,40 +10,64 @@ function App() {
   const [mode, setMode] = useState(0);
   const [text, setText] = useState('Enable Dark Mode');
   const [alert, setAlert] = useState(null);
+  const showAlert = (message, typof)=>{
+    setAlert({"message" : message, "typof": typof});
+    setTimeout(() => {
+      setAlert(null)
+    }, 2000);
+  }
+
+  const styleHeadingDark = {
+    "color": "white"
+  }
+
+  const textAreaStyleDark = {
+    "background" : "#0b1328",
+    "color": "#fff"
+  }
+
+  const themeButtonDark = {
+    "background" : "fff",
+    "color" : "#000"
+  }
+
+  const styleHeadingLight = {
+    "color": "#000"
+  }
+
+  const textAreaStyleLight = {
+    "background" : "#fff",
+    "color": "#000"
+  }
+
+  const themeButtonLight = {
+    "background" : "#000",
+    "color" : "#fff"
+  }
+
+
+  const [themeButtonStyle, setThemeButtonStyle] = useState(themeButtonLight);
+  const [themeAboutHeading, setThemeAboutHeading] = useState(styleHeadingLight);
+  const [themeTextArea, setThemeTextArea] = useState(textAreaStyleLight);
+
   const changeLightDarkMode = () => {
     if (mode === 0) {
-      try {
-        document.getElementById('root').style.background = '#06446b';
-        document.querySelector("#heading").style.color = "white";
-        document.querySelector("#exampleFormControlTextarea1").style.background = "#0b1328";
-        document.querySelector("#exampleFormControlTextarea1").style.color = "#fff";
-        document.querySelector("#lightDarkMode").style.background = "#fff";
-        document.querySelector("#lightDarkMode").style.color = "#000";
-        setMode(1);
-        setText('Enable Light Mode');
-        setAlert({ "message": "Dark Mode Enabled", "typof": "success" });
-        setTimeout(() => {
-          setAlert(null)
-        }, 2000);
-        
-      } catch (error) {}
+      document.getElementById('root').style.background = '#06446b';
+      setThemeButtonStyle(themeButtonDark);
+      setThemeAboutHeading(styleHeadingDark);
+      setThemeTextArea(textAreaStyleDark);
+      setMode(1);
+      setText('Enable Light Mode');
+      showAlert("Dark Mode Enabled", "success");
     }
     else {
-      try {
-        document.getElementById('root').style.background = '#fff';
-        document.querySelector("#heading").style.color = "#000";
-        document.querySelector("#exampleFormControlTextarea1").style.background = "#fff";
-        document.querySelector("#exampleFormControlTextarea1").style.color = "#000";
-        document.querySelector("#lightDarkMode").style.background = "#000";
-        document.querySelector("#lightDarkMode").style.color = "#fff";
-        setMode(0);
-        setText('Enable Dark Mode');
-        setAlert({ "message": "Dark Mode Disabled", "typof": "success" });
-        setTimeout(() => {
-          setAlert(null)
-        }, 2000);
-        
-      } catch (error) {}
+      document.getElementById('root').style.background = '#fff';
+      setThemeButtonStyle(themeButtonLight);
+      setThemeAboutHeading(styleHeadingLight);
+      setThemeTextArea(textAreaStyleLight);
+      setMode(0);
+      setText('Enable Dark Mode');
+      showAlert("Dark Mode Disabled", "success");
     }
   }
 
@@ -54,12 +78,12 @@ function App() {
         <br />
         <div className="container">
           <Routes>
-            <Route exact path="/" element={<TextForm heading="Enter text for analysis" setAlert={setAlert} />} />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/" element={<TextForm heading="Enter text for analysis" showAlert={showAlert} style = {themeTextArea} styleheading = {themeAboutHeading}/>} />
+            <Route exact path="/about" element={<About style={themeAboutHeading} />} />
           </Routes>
         </div>
         <br />
-        <button type="button" className="btn btn-dark" id="lightDarkMode" onClick={changeLightDarkMode}>
+        <button type="button" className="btn" id="lightDarkMode" onClick={changeLightDarkMode} style={themeButtonStyle}>
           {text}
         </button>
         <Alert message={alert} />

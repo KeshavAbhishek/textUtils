@@ -10,6 +10,11 @@ a {
   cursor: pointer;
 }
 
+#heading{
+  font-weight: bolder;
+  font-size: 3.5rem;
+}
+
 .navbar-brand{
   font-size: 1.8rem;
 }
@@ -66,6 +71,7 @@ a {
   font-size: 1.5rem;
   font-weight: bolder;
   transition: background 0.4s ease-in-out;
+  z-index: 1;
 }
 
 .alert{
@@ -111,19 +117,6 @@ p{
   font-size: 1.5rem;
 }
 
-video{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100dvw;
-  z-index: -1;
-}
-
-source{
-  border: 0;
-  outline: none;
-}
-
 
 #about h1{
   font-weight: bolder;
@@ -131,13 +124,11 @@ source{
 
 #about p{
   font-size: 1.7rem;
-  color: white;
   font-weight: bolder;
 }
 
 #about h1{
   font-size: 5rem;
-  color: white;
 }
 
 
@@ -185,9 +176,5 @@ source{
 
   p{
     font-size: 1.1rem !important;
-  }
-
-  video{
-    width: initial;
   }
 }

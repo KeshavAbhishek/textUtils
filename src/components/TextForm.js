@@ -7,27 +7,21 @@ export default function TextForm(props) {
     return (
         <>
             <div className="mb-3">
-                <h1 id="heading">{props.heading}</h1>
+                <h1 id="heading" style={props.styleheading}>{props.heading}</h1>
                 <br />
                 <textarea className="form-control" value={text} onChange={(e) => {
                     setText(e.target.value);
-                }} id="exampleFormControlTextarea1" rows="10" />
+                }} id="exampleFormControlTextarea1" rows="10" style={props.style} />
                 <br />
 
                 <div id="buttons">
                     <button className="btn btn-primary" onClick={(e) => {
                         if (text) {
                             setText(text.toUpperCase());
-                            props.setAlert({ "message": "Converted all to Upper Case", "typof": "success" });
-                            setTimeout(() => {
-                                props.setAlert(null)
-                            }, 2000);
+                            props.showAlert("Converted all to Upper Case", "success");
                         }
                         else {
-                            props.setAlert({ "message": "No Text Found", "typof": "warning" });
-                            setTimeout(() => {
-                                props.setAlert(null)
-                            }, 2000);
+                            props.showAlert("No Text Found", "warning");
                         }
 
                     }}>To Upper Case</button>
@@ -35,16 +29,10 @@ export default function TextForm(props) {
                     <button className="btn btn-warning" onClick={(e) => {
                         if (text) {
                             setText(text.toLowerCase());
-                            props.setAlert({ "message": "Converted all to Lower Case", "typof": "success" });
-                            setTimeout(() => {
-                                props.setAlert(null)
-                            }, 2000);
+                            props.showAlert("Converted all to Lower Case", "success");
                         }
                         else {
-                            props.setAlert({ "message": "No Text Found", "typof": "warning" });
-                            setTimeout(() => {
-                                props.setAlert(null)
-                            }, 2000);
+                            props.showAlert("No Text Found", "warning");
                         }
                     }}>To Lower Case</button>
 
