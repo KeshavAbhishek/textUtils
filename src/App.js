@@ -12,32 +12,38 @@ function App() {
   const [alert, setAlert] = useState(null);
   const changeLightDarkMode = () => {
     if (mode === 0) {
-      document.getElementById('root').style.background = '#06446b';
-      document.querySelector("#heading").style.color = "white";
-      document.querySelector("#exampleFormControlTextarea1").style.background = "#0b1328";
-      document.querySelector("#exampleFormControlTextarea1").style.color = "#fff";
-      document.querySelector("#lightDarkMode").style.background = "#fff";
-      document.querySelector("#lightDarkMode").style.color = "#000";
-      setMode(1);
-      setText('Enable Light Mode');
-      setAlert({ "message": "Dark Mode Enabled", "typof": "success" });
-      setTimeout(() => {
-        setAlert(null)
-      }, 2000);
+      try {
+        document.getElementById('root').style.background = '#06446b';
+        document.querySelector("#heading").style.color = "white";
+        document.querySelector("#exampleFormControlTextarea1").style.background = "#0b1328";
+        document.querySelector("#exampleFormControlTextarea1").style.color = "#fff";
+        document.querySelector("#lightDarkMode").style.background = "#fff";
+        document.querySelector("#lightDarkMode").style.color = "#000";
+        setMode(1);
+        setText('Enable Light Mode');
+        setAlert({ "message": "Dark Mode Enabled", "typof": "success" });
+        setTimeout(() => {
+          setAlert(null)
+        }, 2000);
+        
+      } catch (error) {}
     }
     else {
-      document.getElementById('root').style.background = '#fff';
-      document.querySelector("#heading").style.color = "#000";
-      document.querySelector("#exampleFormControlTextarea1").style.background = "#fff";
-      document.querySelector("#exampleFormControlTextarea1").style.color = "#000";
-      document.querySelector("#lightDarkMode").style.background = "#000";
-      document.querySelector("#lightDarkMode").style.color = "#fff";
-      setMode(0);
-      setText('Enable Dark Mode');
-      setAlert({ "message": "Dark Mode Disabled", "typof": "success" });
-      setTimeout(() => {
-        setAlert(null)
-      }, 2000);
+      try {
+        document.getElementById('root').style.background = '#fff';
+        document.querySelector("#heading").style.color = "#000";
+        document.querySelector("#exampleFormControlTextarea1").style.background = "#fff";
+        document.querySelector("#exampleFormControlTextarea1").style.color = "#000";
+        document.querySelector("#lightDarkMode").style.background = "#000";
+        document.querySelector("#lightDarkMode").style.color = "#fff";
+        setMode(0);
+        setText('Enable Dark Mode');
+        setAlert({ "message": "Dark Mode Disabled", "typof": "success" });
+        setTimeout(() => {
+          setAlert(null)
+        }, 2000);
+        
+      } catch (error) {}
     }
   }
 
@@ -49,7 +55,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/" element={<TextForm heading="Enter text for analysis" setAlert={setAlert} />} />
-            <Route path="/about" element={<About />} />
+            <Route exact path="/about" element={<About />} />
           </Routes>
         </div>
         <br />
