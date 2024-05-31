@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 function App() {
   const [mode, setMode] = useState(0);
-  const [text, setText] = useState('Enable Dark Mode');
+  const [text, setText] = useState('moon');
   const [alert, setAlert] = useState(null);
   const showAlert = (message, typof)=>{
     setAlert({"message" : message, "typof": typof});
@@ -68,7 +68,7 @@ function App() {
       setThemeAboutHeading(styleHeadingDark);
       setThemeTextArea(textAreaStyleDark);
       setMode(1);
-      setText('Enable Light Mode');
+      setText('sun');
       showAlert("Dark Mode Enabled", "success");
       document.querySelector("#aligns").style.filter = "invert(1)";
     }
@@ -78,7 +78,7 @@ function App() {
       setThemeAboutHeading(styleHeadingLight);
       setThemeTextArea(textAreaStyleLight);
       setMode(0);
-      setText('Enable Dark Mode');
+      setText('moon');
       showAlert("Dark Mode Disabled", "success");
       document.querySelector("#aligns").style.filter = "invert(0)";
     }
@@ -97,7 +97,8 @@ function App() {
         </div>
         {/* <br /> */}
         <button type="button" className="btn" id="lightDarkMode" onClick={changeLightDarkMode} style={themeButtonStyle}>
-          {text}
+          {/* {text} */}
+          <i className={`fa-regular fa-${text}`}></i>
         </button>
         <Alert message={alert} />
         <div id='aligns' style={styleAlign}>
