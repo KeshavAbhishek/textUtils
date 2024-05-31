@@ -45,10 +45,21 @@ function App() {
     "color" : "#fff"
   }
 
+  const styleAlignClicked = {
+    "transform": "translateX(-9rem)"
+  }
+
+  const styleAlignUnclicked = {
+    "right": "-9rem"
+  }
+
 
   const [themeButtonStyle, setThemeButtonStyle] = useState(themeButtonLight);
   const [themeAboutHeading, setThemeAboutHeading] = useState(styleHeadingLight);
   const [themeTextArea, setThemeTextArea] = useState(textAreaStyleLight);
+
+
+  const [styleAlign, setStyleAlign] = useState(styleAlignUnclicked);
 
   const changeLightDarkMode = () => {
     if (mode === 0) {
@@ -59,6 +70,7 @@ function App() {
       setMode(1);
       setText('Enable Light Mode');
       showAlert("Dark Mode Enabled", "success");
+      document.querySelector("#aligns").style.filter = "invert(1)";
     }
     else {
       document.getElementById('root').style.background = '#fff';
@@ -68,6 +80,7 @@ function App() {
       setMode(0);
       setText('Enable Dark Mode');
       showAlert("Dark Mode Disabled", "success");
+      document.querySelector("#aligns").style.filter = "invert(0)";
     }
   }
 
@@ -75,13 +88,6 @@ function App() {
     <>
       <Router>
         <Navbar title="Text Utils" />
-        <div id='aligns'>
-          <ul>
-          <i className="fa-solid fa-align-left"></i>
-          <i className="fa-solid fa-align-center"></i>
-          <i className="fa-solid fa-align-right"></i>
-          </ul>
-        </div>
         <br />
         <div className="container">
           <Routes>
@@ -94,6 +100,28 @@ function App() {
           {text}
         </button>
         <Alert message={alert} />
+        <div id='aligns' style={styleAlign}>
+          <ul>
+          <i class="fa-solid fa-arrow-left" onClick={()=>{
+            setStyleAlign(styleAlignClicked);
+          }}></i>
+          <i className="fa-solid fa-align-left" onClick={()=>{
+            setStyleAlign(styleAlignUnclicked);
+            document.querySelector('textarea').style.textAlign='left';
+            showAlert("Left aligned successfully", "success");
+          }}></i>
+          <i className="fa-solid fa-align-center" onClick={()=>{
+            setStyleAlign(styleAlignUnclicked);
+            document.querySelector('textarea').style.textAlign='center';
+            showAlert("Center aligned successfully", "success");
+          }}></i>
+          <i className="fa-solid fa-align-right" onClick={()=>{
+            setStyleAlign(styleAlignUnclicked);
+            document.querySelector('textarea').style.textAlign='right';
+            showAlert("Right aligned successfully", "success");
+          }}></i>
+          </ul>
+        </div>
       </Router>
     </>
   );

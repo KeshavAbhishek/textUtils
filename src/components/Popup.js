@@ -3,16 +3,18 @@ import React from 'react'
 export default function Popup(props) {
     return (
         <>
-            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick = {()=>{
-                        var a = props.text;
-                        var b = props.text.split(" ").filter((element)=>{return element.length!==0});
-                        if(b.length>0){
-                            props.setData(`${a.length} characters & ${b.length} words.`);
-                        }
-                        else{
-                            props.setData('Text box is Empty.');
-                        }
-                    }}>
+            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => {
+                var txt = props.text;
+                var a = txt;
+                var b = txt.split(" ").filter((element) => { return element.length !== 0 });
+                if (b.length > 0) {
+                    props.setData(`${a.length} characters & ${b.length} words.`);
+                    console.log(txt,a.length, b.length);
+                }
+                else {
+                    props.setData('Text box is Empty.');
+                }
+            }}>
                 {props.name}
             </button>
 
