@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Navbar(props) {
-  const styleMe={"color": "#000"};
+  const styleMe = { "color": "#000" };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,6 +23,7 @@ export default function Navbar(props) {
                 {/* <a className="nav-link active" aria-current="page" href="/">Run</a> */}
               </li>
             </ul>
+            <br />
           </div>
         </div>
       </nav>

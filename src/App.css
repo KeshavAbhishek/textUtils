@@ -178,3 +178,18 @@ p{
     font-size: 1.1rem !important;
   }
 }
+
+
+#aligns{
+  /* border: 2px solid; */
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+    left: 50%;
+    transform: translateY(-0%) translateX(-50%);
+}
+
+i{
+  font-size: 2.5rem;
+  margin: 0 2vw;
+}

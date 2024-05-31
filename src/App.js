@@ -27,7 +27,7 @@ function App() {
   }
 
   const themeButtonDark = {
-    "background" : "fff",
+    "background" : "#fff",
     "color" : "#000"
   }
 
@@ -75,6 +75,13 @@ function App() {
     <>
       <Router>
         <Navbar title="Text Utils" />
+        <div id='aligns'>
+          <ul>
+          <i className="fa-solid fa-align-left"></i>
+          <i className="fa-solid fa-align-center"></i>
+          <i className="fa-solid fa-align-right"></i>
+          </ul>
+        </div>
         <br />
         <div className="container">
           <Routes>
@@ -82,7 +89,7 @@ function App() {
             <Route exact path="/about" element={<About style={themeAboutHeading} />} />
           </Routes>
         </div>
-        <br />
+        {/* <br /> */}
         <button type="button" className="btn" id="lightDarkMode" onClick={changeLightDarkMode} style={themeButtonStyle}>
           {text}
         </button>

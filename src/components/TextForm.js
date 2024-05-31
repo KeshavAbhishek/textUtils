@@ -36,6 +36,17 @@ export default function TextForm(props) {
                         }
                     }}>To Lower Case</button>
 
+                    <button className='btn btn-danger' onClick={(e) => {
+                        if (text) {
+                            // setText(text.toLowerCase());
+                            navigator.clipboard.writeText(text);
+                            props.showAlert("Text Copied Successfully", "success");
+                        }
+                        else {
+                            props.showAlert("No Text Found", "warning");
+                        }
+                    }}>Copy Text</button>
+
                     <Popup name="No. of Char(s) & Word(s)" data={data} text={text} setData={setData} />
                 </div>
             </div>
