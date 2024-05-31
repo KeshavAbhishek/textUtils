@@ -6,7 +6,7 @@ export default function Popup(props) {
             <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => {
                 var txt = props.text;
                 var a = txt;
-                var b = txt.split(" ").filter((element) => { return element.length !== 0 });
+                var b = txt.split(/\s+/).filter((element) => { return element.length !== 0 });
                 if (b.length > 0) {
                     props.setData(`${a.length} characters & ${b.length} words.`);
                     console.log(txt,a.length, b.length);
