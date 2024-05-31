@@ -47,6 +47,16 @@ export default function TextForm(props) {
                         }
                     }}>Copy Text</button>
 
+                    <button className='btn btn-secondary' onClick={(e) => {
+                        if (text) {
+                            setText('');
+                            props.showAlert("Text Box Cleared Successfully", "success");
+                        }
+                        else {
+                            props.showAlert("Already clear", "danger");
+                        }
+                    }}>Clear Text</button>
+
                     <Popup name="No. of Char(s) & Word(s)" data={data} text={text} setData={setData} />
                 </div>
             </div>
